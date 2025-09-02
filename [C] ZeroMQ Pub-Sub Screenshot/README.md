@@ -1,0 +1,3 @@
+The pub server creates a PUB socket and binds it to the port set which is 5556 and every second it picks a random "topic" between 9999 and 10004, picks a random value between -79 and 134 then combines them in a string. Prints it into the PUB terminal and sends it out via ZeroMQ to anyone subscribed.
+
+The sub client creates a SUB socket and connects to the publishers address. Then a subscription filter is set which is 10001 in this case meaning it only listens to messages which have a topic of 10001. It then takes 5 updates and each string is split into topic and data. The values are summed and then the average is printed for the filtered topic.
